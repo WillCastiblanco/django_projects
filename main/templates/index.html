@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Login & Registration</title>
+</head>
+<body>
+    <div class='container'>
+        <h1>Registration</h1>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>
+                {{ message }}
+            </li> 
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+        {{incorrect}}
+        
+        <form action="/register" method='POST'>
+            {% csrf_token %}
+            
+
+            <label for="first_name">First Name</label>
+            <input type="text" name="first_name"  class="form-control">
+
+            <label for="last_name">Last Name</label>
+            <input type="text" name="last_name"  class="form-control">
+
+            <!-- <label for="birthday">Birthday</label>
+            <input type="date" name="birthday"  class="form-control"> -->
+
+            <label for="email">Email</label>
+            <input type="text" name="email"  class="form-control">
+
+            <label for="password">Password</label>
+            <input type="password" name="password"  class="form-control">
+
+            <label for="conf_password">Confirm PW</label>
+            <input type="password" name="conf_password"  class="form-control">
+            <br>
+
+            <button>Register</button>
+        </form>
+
+        <hr>
+        <form action="/login" method='POST'>
+            {% csrf_token %}
+            <label for="email">Email</label>
+            <input type="text" name="email"  class="form-control">
+
+            <label for="password">Password</label>
+            <input type="password" name="password"  class="form-control">
+            <br>
+
+            <button>Log in</button>
+
+        </form>
+
+
+
+    </div>
+</body>
+</html>
